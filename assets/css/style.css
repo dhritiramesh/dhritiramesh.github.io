@@ -133,7 +133,6 @@ a:hover {
   color: #E6E6E6;
 }
 
-/* Project Grid */
 /* Projects Section */
 .projects-section {
   text-align: center;
@@ -148,48 +147,48 @@ a:hover {
   margin-bottom: 3rem;
 }
 
+/* Grid for Projects */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 3rem;
   justify-items: center;
 }
 
-/* Card Container */
+/* Individual Project Card */
 .project-card {
-  background: #2A2E4A; /* dark background matching your theme */
-  border-radius: 2rem;
+  background: #E6E6E6; /* beige-like background for contrast */
+  color: #1B1F3B;
+  border-radius: 2.5rem;
   width: 90%;
-  max-width: 550px;
-  aspect-ratio: 16 / 9; /* keeps consistent box shape like your mockup */
-  position: relative;
-  overflow: hidden; /* crop images cleanly */
+  max-width: 600px;
+  height: 300px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 0 2rem;
+  position: relative;
   transition: transform 0.3s ease, background 0.3s ease;
 }
 
-/* Image styling — cropped & centered */
+/* Image cropped off to the side */
 .project-card img {
-  position: absolute;
-  height: 120%;
+  height: 140%;
   width: auto;
   object-fit: cover;
-  object-position: center;
-  top: 50%;
-  left: 50%;
   transform: translateX(-20%); /* pushes image partially outside */
+  flex-shrink: 0;
   border-radius: 0;
-  opacity: 0.9;
 }
 
+/* Alternate sides for even/odd cards */
 .project-card:nth-child(even) img {
   transform: translateX(20%);
   order: 2; /* put image on right for even cards */
 }
 
-/* Project title centered above image layer */
+/* Text beside the image */
 .project-card h3 {
   flex: 1;
   text-align: center;
@@ -199,10 +198,10 @@ a:hover {
   color: #1B1F3B;
 }
 
-
-/* Hover effect for lift */
+/* Hover effect */
 .project-card:hover {
   transform: translateY(-8px);
-  background: #3C3F5A;
+  background: #D9CFCF;
 }
+
 

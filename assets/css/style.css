@@ -179,23 +179,26 @@ a:hover {
   object-position: center;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -45%); /* centers image but keeps slight “cutoff” look */
+  transform: translateX(-20%); /* pushes image partially outside */
   border-radius: 0;
   opacity: 0.9;
 }
 
+.project-card:nth-child(even) img {
+  transform: translateX(20%);
+  order: 2; /* put image on right for even cards */
+}
+
 /* Project title centered above image layer */
 .project-card h3 {
-  position: relative;
-  z-index: 2;
-  color: #E6E6E6;
-  font-weight: 600;
+  flex: 1;
   text-align: center;
+  font-family: 'Raleway', sans-serif;
   font-size: 1.3rem;
-  background: rgba(26, 26, 50, 0.6);
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
+  font-weight: 600;
+  color: #1B1F3B;
 }
+
 
 /* Hover effect for lift */
 .project-card:hover {

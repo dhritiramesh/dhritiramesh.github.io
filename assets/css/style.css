@@ -134,55 +134,72 @@ a:hover {
 }
 
 /* Project Grid */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  justify-items: center;
-}
-
-.project-card {
-  background: #2A2E4A; /* dark card background */
-  border-radius: 2rem;
-  width: 90%;
-  max-width: 500px;
-  height: 280px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2rem;
-  overflow: hidden; /* cuts off the image edges */
-  position: relative;
-}
-
-.project-card img {
-  height: 150%;
-  width: auto;
-  object-fit: cover;
-  object-position: left;
-  transform: translateX(-10%); /* makes image appear cropped */
-}
-
-
-.project-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  background: #3C3F5A;
+/* Projects Section */
+.projects-section {
+  text-align: center;
+  padding: 4rem 2rem;
 }
 
 .projects-title {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 3rem;
   letter-spacing: 3px;
-  color: #f3c9b6;
+  color: #C8A2C8;
   margin-bottom: 3rem;
 }
 
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+/* Card Container */
+.project-card {
+  background: #2A2E4A; /* dark background matching your theme */
+  border-radius: 2rem;
+  width: 90%;
+  max-width: 550px;
+  aspect-ratio: 16 / 9; /* keeps consistent box shape like your mockup */
+  position: relative;
+  overflow: hidden; /* crop images cleanly */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Image styling — cropped & centered */
+.project-card img {
+  position: absolute;
+  height: 120%;
+  width: auto;
+  object-fit: cover;
+  object-position: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -45%); /* centers image but keeps slight “cutoff” look */
+  border-radius: 0;
+  opacity: 0.9;
+}
+
+/* Project title centered above image layer */
 .project-card h3 {
-  /* padding: 1rem; */
-  color: #D9CFCF;
+  position: relative;
+  z-index: 2;
+  color: #E6E6E6;
   font-weight: 600;
   text-align: center;
-  flex-shrink: 0;
-  width: 50%;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  background: rgba(26, 26, 50, 0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
 }
+
+/* Hover effect for lift */
+.project-card:hover {
+  transform: translateY(-8px);
+  background: #3C3F5A;
+}
+

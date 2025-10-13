@@ -23,7 +23,7 @@ a {
 }
 
 a:hover {
-  color: #6C5B7B; /* bossanova purple on hover */
+  color: #C8A2C8; /* light lavender hover */
 }
 
 /* Navbar */
@@ -32,7 +32,7 @@ a:hover {
   justify-content: center;
   gap: 2rem;
   padding: 1.5rem;
-  background: #1B1F3B; /* dark, same as bg for sleek look */
+  background: #1B1F3B; /* dark, same as bg */
   font-family: 'Quicksand', sans-serif;
   position: sticky;
   top: 0;
@@ -45,7 +45,7 @@ a:hover {
 }
 
 .navbar a:hover {
-  color: #8C6FC1; /* brighter purple hover */
+  color: #C8A2C8; /* light lavender hover */
 }
 
 /* Hero Section */
@@ -62,7 +62,7 @@ a:hover {
   font-family: 'Bebas Neue', sans-serif;
   font-weight: 400;
   font-size: 4rem;
-  color: #8C6FC1; /* brighter purple for visibility */
+  color: #C8A2C8; /* light lavender for name animation */
   text-transform: uppercase;
   letter-spacing: 6px;
   animation: fadeInUp 2s ease-out;
@@ -107,7 +107,7 @@ a:hover {
 
 .about-section h1 {
   font-size: 3rem;
-  color: #8C6FC1; /* brighter purple for headings */
+  color: #C8A2C8; /* light lavender for headings */
   margin-bottom: 1rem;
   font-weight: 600;
 }
@@ -147,6 +147,9 @@ a:hover {
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   overflow: hidden;
   transition: transform 0.3s ease, background 0.3s ease;
+  display: block; /* make entire card clickable */
+  text-decoration: none;
+  color: inherit;
 }
 
 .project-card:hover {

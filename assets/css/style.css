@@ -45,7 +45,7 @@ a:hover {
 }
 
 .navbar a:hover {
-  color: #6C5B7B;
+  color: #8C6FC1; /* brighter purple hover */
 }
 
 /* Hero Section */
@@ -62,7 +62,7 @@ a:hover {
   font-family: 'Bebas Neue', sans-serif;
   font-weight: 400;
   font-size: 4rem;
-  color: #6C5B7B; /* bossanova purple */
+  color: #8C6FC1; /* brighter purple for visibility */
   text-transform: uppercase;
   letter-spacing: 6px;
   animation: fadeInUp 2s ease-out;
@@ -107,7 +107,7 @@ a:hover {
 
 .about-section h1 {
   font-size: 3rem;
-  color: #6C5B7B;
+  color: #8C6FC1; /* brighter purple for headings */
   margin-bottom: 1rem;
   font-weight: 600;
 }

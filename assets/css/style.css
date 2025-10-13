@@ -133,39 +133,84 @@ a:hover {
   color: #E6E6E6;
 }
 
-/* Project Grid */
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
+/* PROJECTS SECTION */
+.projects-section {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+  text-align: center;
 }
 
-.project-card {
-  background: #2A2E4A; /* dark card background */
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  overflow: hidden; /* important: hides the part of image outside card */
+.projects-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem;
+  letter-spacing: 4px;
+  color: #C8A2C8; /* lavender title */
+  margin-bottom: 2.5rem;
   position: relative;
-  transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.project-card img {
-  width: 100%;        /* image fills card width */
-  height: 250px;      /* taller than usual so top part can be cropped */
-  object-fit: cover;  /* crops image to fit container nicely */
-  object-position: top; /* shows top 3/4 of image */
-  border-radius: 12px 12px 0 0; /* rounded corners at top only */
+.projects-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: #C8A2C8;
+  margin: 1rem auto 0;
+  border-radius: 2px;
+  opacity: 0.8;
 }
 
+/* Project Grid Layout */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  padding: 0 1rem;
+}
+
+/* Project Cards */
+.project-card {
+  background: linear-gradient(160deg, #2A2E4A 0%, #1F2343 100%);
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
 
 .project-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  background: #3C3F5A;
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
+/* Images */
+.project-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  object-position: top;
+  border-bottom: 2px solid #C8A2C8; /* subtle accent border */
+  transition: opacity 0.3s ease;
+}
 
+.project-card:hover img {
+  opacity: 0.9;
+}
+
+/* Project Titles */
 .project-card h3 {
-  padding: 1rem;
-  color: #D9CFCF;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  color: #E6E6E6;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 1.2rem 1rem;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
 }
+
+.project-card:hover h3 {
+  color: #C8A2C8;
+}
+

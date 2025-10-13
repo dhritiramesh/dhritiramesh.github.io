@@ -134,28 +134,33 @@ a:hover {
 }
 
 /* Project Grid */
-.project-grid {
+.projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
-  padding: 2rem;
+  justify-items: center;
 }
 
 .project-card {
   background: #2A2E4A; /* dark card background */
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  overflow: hidden; /* important: hides the part of image outside card */
+  border-radius: 2rem;
+  width: 90%;
+  max-width: 500px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  overflow: hidden; /* cuts off the image edges */
   position: relative;
-  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .project-card img {
-  width: 100%;        /* image fills card width */
-  height: 250px;      /* taller than usual so top part can be cropped */
-  object-fit: cover;  /* crops image to fit container nicely */
-  object-position: top; /* shows top 3/4 of image */
-  border-radius: 12px 12px 0 0; /* rounded corners at top only */
+  height: 150%;
+  width: auto;
+  object-fit: cover;
+  object-position: left;
+  transform: translateX(-10%); /* makes image appear cropped */
 }
 
 
@@ -166,6 +171,11 @@ a:hover {
 
 
 .project-card h3 {
-  padding: 1rem;
+  /* padding: 1rem; */
   color: #D9CFCF;
+  font-weight: 600;
+  text-align: center;
+  flex-shrink: 0;
+  width: 50%;
+  font-size: 1.2rem;
 }

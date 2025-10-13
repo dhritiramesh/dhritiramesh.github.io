@@ -28,7 +28,25 @@
           <button class="expand-btn">Read More</button>
           <div class="research-details">
             <h4>Abstract</h4>
-            <p>This project explored the integration of large language models (LLMs) into educational environments, focusing on prompt engineering for enhanced learning experiences. Using the <strong>llama.cpp</strong> framework, I evaluated reproducibility and latency across various LLaMA model sizes to determine their practical classroom potential. Findings demonstrated the importance of fine-tuned prompts and contextual grounding to ensure consistent, accurate, and bias-reduced educational responses.</p>
+            <p>This poster discusses the evaluation of prompt engineering strategies in large language models (LLMs) through an analysis of response accuracy, reproducibility, and latency across multiple model
+variants. The study included 174 prompt-response trials across ten
+categories, including logic, mathematics, and language interpretation, administered to three versions of Meta's LLaMA models
+(1B, 3B, and 8B parameters). Each trial measured response accuracy, reproducibility, and latency (using Python code to quantify
+the latter two systematically) to assess how model scale influences
+both output quality and computational efficiency. Results reveal
+distinct scaling patterns: the LLaMA 8B model achieved the highest accuracy (75.86%) and reproducibility (0.38) but demonstrated
+longer latency (24.27 seconds on average), whereas smaller mod-
+els responded faster but with lower accuracy (24.14% for 1B and
+44.83% for 3B). Across all models, the average accuracy was 48.28%,
+reproducibility 0.35, and mean latency 14.78 seconds. These findings highlight a measurable trade-off between reasoning reliability
+and computational speed. The significance of this work extends
+to computing education, where LLMs are increasingly integrated
+as teaching, tutoring, and assessment tools. Understanding how
+prompt design and model scale affect the consistency of generated
+responses is critical for developing trustworthy and transparent
+educational Al systems. By analyzing LLM behavior across structured prompts, this study provides insight into how educators and
+developers can optimize model interactions for classroom learning,
+automated feedback, and equitable evaluation.</p>
             <h4>Journey</h4>
             <p>Working with a PhD researcher at the Colorado School of Mines, I dove into LLM optimization, testing model behavior across multiple configurations. Through iterative experimentation and Python scripting, I developed an appreciation for reproducibility/latency challenges in AI, inspiring my broader interest in accessible and ethical AI systems for education.</p>
           </div>

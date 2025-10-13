@@ -63,9 +63,17 @@ a:hover {
 .subtitle {
   margin-top: 1rem;
   font-size: 1.5rem;
-  color: #5a3ac9;
-  font-family: 'Quicksand', sans-serif;
+  color: #5a3ac9; /* secondary purple */
+  font-family: 'Raleway', sans-serif; /* new stylish font */
   font-weight: 400;
+  opacity: 0;
+  animation: fadeInUp 2s ease-out forwards;
+  animation-delay: 1s; /* appear after name */
+}
+.animated-subtitle {
+  opacity: 0;
+  animation: fadeInUp 2s ease-out forwards;
+  animation-delay: 1s; /* starts 1 second after name animation */
 }
 
 /* Animations */

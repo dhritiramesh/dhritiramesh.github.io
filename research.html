@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research | Dhriti Ramesh</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="web-dev.html">Website/App Development</a>
+      <a href="research.html">Projects and Research</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="research-section">
+      <h1 class="research-title">RESEARCH</h1>
+      <div class="research-grid">
+
+        <!-- LLM Research -->
+        <div class="research-card">
+          <h3>LLMs & Prompt Engineering in Education</h3>
+          <p class="research-sub">Colorado School of Mines • 2024</p>
+          <button class="expand-btn">Read More</button>
+          <div class="research-details">
+            <h4>Abstract</h4>
+            <p>This project explored the integration of large language models (LLMs) into educational environments, focusing on prompt engineering for enhanced learning experiences. Using the <strong>llama.cpp</strong> framework, I evaluated reproducibility and latency across various LLaMA model sizes to determine their practical classroom potential. Findings demonstrated the importance of fine-tuned prompts and contextual grounding to ensure consistent, accurate, and bias-reduced educational responses.</p>
+            <h4>Journey</h4>
+            <p>Working with a PhD researcher at the Colorado School of Mines, I dove into LLM optimization, testing model behavior across multiple configurations. Through iterative experimentation and Python scripting, I developed an appreciation for reproducibility challenges in AI, inspiring my broader interest in accessible and ethical AI systems for education.</p>
+          </div>
+        </div>
+
+        <!-- Astrophysics Research -->
+        <div class="research-card">
+          <h3>Astrophysics Research (SSP)</h3>
+          <p class="research-sub">Summer Science Program • 2023</p>
+          <button class="expand-btn">Read More</button>
+          <div class="research-details">
+            <h4>Abstract</h4>
+            <p>At the <strong>Summer Science Program in Astrophysics</strong>, my team analyzed near-Earth asteroid trajectories using real telescope data. We applied <em>differential equations</em> and <em>orbital mechanics</em> to compute orbital elements and predict future positions. Our work highlighted how computational modeling and mathematics combine to interpret real celestial data.</p>
+            <h4>Journey</h4>
+            <p>This was my first exposure to intensive scientific research — coding in Python late into the night, learning error propagation, and collaborating with peers from around the world. It strengthened my desire to blend computation with physical sciences and taught me how scientific curiosity drives discovery.</p>
+          </div>
+        </div>
+
+        <!-- Anemia App -->
+        <div class="research-card">
+          <h3>Anemia Detection & Awareness App</h3>
+          <p class="research-sub">Personal Initiative • 2025</p>
+          <button class="expand-btn">Read More</button>
+          <div class="research-details">
+            <h4>Overview</h4>
+            <p>This ongoing project focuses on using accessible technology to improve awareness of anemia and nutritional deficiencies. Through app-based self-assessments, educational modules, and symptom tracking, the tool aims to empower individuals — especially young women — with proactive health insights.</p>
+            <h4>Journey</h4>
+            <p>I began this project after learning about global health disparities related to iron deficiency. Combining my interests in computer science and biology, I designed early app prototypes and researched how user-centered interfaces could improve engagement with health education. The project continues to evolve as I explore ways to integrate AI-driven analysis and expand impact through outreach.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Expand/Collapse Research Details
+    const buttons = document.querySelectorAll('.expand-btn');
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const details = button.nextElementSibling;
+        details.classList.toggle('show');
+        button.textContent = details.classList.contains('show') ? 'Show Less' : 'Read More';
+      });
+    });
+  </script>
+</body>
+</html>

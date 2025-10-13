@@ -145,19 +145,17 @@ a:hover {
   background: #2A2E4A; /* dark card background */
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  overflow: visible; /* allows image to overflow */
+  overflow: hidden; /* important: hides the part of image outside card */
   position: relative;
   transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .project-card img {
-  width: 120%; /* make image larger than card */
-  height: auto;
-  object-fit: cover;
-  position: relative;
-  top: -20px; /* move image upward */
-  left: -10px; /* move slightly left */
-  border-radius: 12px;
+  width: 100%;        /* image fills card width */
+  height: 250px;      /* taller than usual so top part can be cropped */
+  object-fit: cover;  /* crops image to fit container nicely */
+  object-position: top; /* shows top 3/4 of image */
+  border-radius: 12px 12px 0 0; /* rounded corners at top only */
 }
 
 

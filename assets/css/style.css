@@ -9,7 +9,8 @@
 }
 
 body {
-  background-color: #fdfaff; /* very light purple/white background */
+  font-family: 'Quicksand', sans-serif;
+  background-color: #fdfaff;
   color: #2e2e2e;
   line-height: 1.6;
 }
@@ -48,8 +49,12 @@ a:hover {
 }
 
 .animated-name {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 400;
   font-size: 4rem;
   color: #7b5cff; /* main purple */
+  text-transform: uppercase; /* all caps */
+  letter-spacing: 2px;       /* add spacing for thin, sleek effect */
   animation: fadeInUp 2s ease-out;
 }
 

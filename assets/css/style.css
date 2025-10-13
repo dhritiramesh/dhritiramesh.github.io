@@ -169,6 +169,13 @@ a:hover {
   background: #3C3F5A;
 }
 
+.projects-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  letter-spacing: 3px;
+  color: #f3c9b6;
+  margin-bottom: 3rem;
+}
 
 .project-card h3 {
   /* padding: 1rem; */

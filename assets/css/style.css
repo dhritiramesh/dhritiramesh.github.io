@@ -1,28 +1,29 @@
-/* Google font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Quicksand:wght@300;400;500;600&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
 }
 
+/* Base body font */
 body {
   font-family: 'Quicksand', sans-serif;
-  background-color: #fdfaff;
+  background-color: #fdfaff; /* very light purple/white */
   color: #2e2e2e;
   line-height: 1.6;
 }
 
+/* Links */
 a {
   text-decoration: none;
-  color: #7b5cff; /* brighter purple accent */
+  color: #7b5cff; /* main purple accent */
   font-weight: 500;
 }
 
 a:hover {
-  color: #5a3ac9;
+  color: #5a3ac9; /* darker purple on hover */
 }
 
 /* Navbar */
@@ -36,9 +37,10 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 100;
+  font-family: 'Quicksand', sans-serif;
 }
 
-/* Hero section */
+/* Hero Section */
 .hero {
   display: flex;
   flex-direction: column;
@@ -52,16 +54,18 @@ a:hover {
   font-family: 'Orbitron', sans-serif;
   font-weight: 400;
   font-size: 4rem;
-  color: #7b5cff; /* main purple */
-  text-transform: uppercase; /* all caps */
-  letter-spacing: 2px;       /* add spacing for thin, sleek effect */
+  color: #7b5cff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
   animation: fadeInUp 2s ease-out;
 }
 
 .subtitle {
   margin-top: 1rem;
   font-size: 1.5rem;
-  color: #5a3ac9; /* secondary purple */
+  color: #5a3ac9;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
 }
 
 /* Animations */
@@ -76,17 +80,19 @@ a:hover {
   }
 }
 
-/* About section */
+/* About Section */
 .about-section {
   max-width: 900px;
   margin: 2rem auto;
   padding: 0 2rem;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .about-section h1 {
   font-size: 3rem;
   color: #7b5cff;
   margin-bottom: 1rem;
+  font-weight: 600;
 }
 
 .about-section h2 {
@@ -94,11 +100,13 @@ a:hover {
   margin-top: 2rem;
   margin-bottom: 0.5rem;
   color: #5a3ac9;
+  font-weight: 500;
 }
 
 .about-section p {
   margin-bottom: 1rem;
   color: #2e2e2e;
+  font-weight: 400;
 }
 
 .skills-list {
@@ -108,7 +116,7 @@ a:hover {
   color: #2e2e2e;
 }
 
-/* Project card style (keep from previous) */
+/* Project Grid */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

@@ -133,75 +133,49 @@ a:hover {
   color: #E6E6E6;
 }
 
-/* Projects Section */
-.projects-section {
-  text-align: center;
-  padding: 4rem 2rem;
-}
-
-.projects-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 3rem;
-  letter-spacing: 3px;
-  color: #C8A2C8;
-  margin-bottom: 3rem;
-}
-
-/* Grid for Projects */
+/* Project Grid */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
   justify-items: center;
 }
 
-/* Individual Project Card */
 .project-card {
-  background: #E6E6E6; /* beige-like background for contrast */
-  color: #1B1F3B;
-  border-radius: 2.5rem;
+  background: #2A2E4A; /* dark card background */
+  border-radius: 2rem;
   width: 90%;
-  max-width: 600px;
-  height: 300px;
+  max-width: 500px;
+  height: 280px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  overflow: hidden;
-  padding: 0 2rem;
+  padding: 2rem;
+  overflow: hidden; /* cuts off the image edges */
   position: relative;
-  transition: transform 0.3s ease, background 0.3s ease;
 }
 
-/* Image cropped off to the side */
 .project-card img {
-  height: 140%;
+  height: 150%;
   width: auto;
   object-fit: cover;
-  transform: translateX(-20%); /* pushes image partially outside */
-  flex-shrink: 0;
-  border-radius: 0;
+  object-position: left;
+  transform: translateX(-10%); /* makes image appear cropped */
 }
 
-/* Alternate sides for even/odd cards */
-.project-card:nth-child(even) img {
-  transform: translateX(20%);
-  order: 2; /* put image on right for even cards */
-}
 
-/* Text beside the image */
-.project-card h3 {
-  flex: 1;
-  text-align: center;
-  font-family: 'Raleway', sans-serif;
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #1B1F3B;
-}
-
-/* Hover effect */
 .project-card:hover {
-  transform: translateY(-8px);
-  background: #D9CFCF;
+  transform: translateY(-10px) scale(1.02);
+  background: #3C3F5A;
 }
 
 
+.project-card h3 {
+  /* padding: 1rem; */
+  color: #D9CFCF;
+  font-weight: 600;
+  text-align: center;
+  flex-shrink: 0;
+  width: 50%;
+  font-size: 1.2rem;
+}

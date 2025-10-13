@@ -1,5 +1,5 @@
 /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quicksand:wght@200;400;500;600&family=Raleway:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quicksand:wght@300;400;500;600&family=Raleway:wght@300;400;500&display=swap');
 
 * {
   margin: 0;
@@ -10,20 +10,20 @@
 /* Base body font */
 body {
   font-family: 'Quicksand', sans-serif;
-  background-color: #fdfaff; /* very light purple/white */
-  color: #2e2e2e;
+  background-color: #e6ddd6; /* beige-ish background */
+  color: #2e2e2e; /* dark gray for text */
   line-height: 1.6;
 }
 
 /* Links */
 a {
   text-decoration: none;
-  color: #7b5cff; /* main purple accent */
+  color: #5a3ac9; /* darker purple accent */
   font-weight: 500;
 }
 
 a:hover {
-  color: #5a3ac9; /* darker purple on hover */
+  color: #7b5cff; /* lighter purple on hover */
 }
 
 /* Navbar */
@@ -32,7 +32,7 @@ a:hover {
   justify-content: center;
   gap: 2rem;
   padding: 1.5rem;
-  background: white;
+  background: #fdfaff; /* optional subtle contrast from beige */
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
@@ -52,28 +52,29 @@ a:hover {
 
 .animated-name {
   font-family: 'Bebas Neue', sans-serif;
-  font-weight: 200;
+  font-weight: 400; /* thinnest available */
   font-size: 4rem;
-  color: #7b5cff;
+  color: #5a3ac9; /* dark purple */
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 6px; /* makes it look thinner */
   animation: fadeInUp 2s ease-out;
 }
 
 .subtitle {
   margin-top: 1rem;
   font-size: 1.5rem;
-  color: #5a3ac9; /* secondary purple */
-  font-family: 'Raleway', sans-serif; /* new stylish font */
+  color: #5a3ac9; /* dark purple */
+  font-family: 'Raleway', sans-serif;
   font-weight: 400;
   opacity: 0;
   animation: fadeInUp 2s ease-out forwards;
   animation-delay: 1s; /* appear after name */
 }
+
 .animated-subtitle {
   opacity: 0;
   animation: fadeInUp 2s ease-out forwards;
-  animation-delay: 1s; /* starts 1 second after name animation */
+  animation-delay: 1s;
 }
 
 /* Animations */
@@ -98,7 +99,7 @@ a:hover {
 
 .about-section h1 {
   font-size: 3rem;
-  color: #7b5cff;
+  color: #5a3ac9; /* dark purple heading */
   margin-bottom: 1rem;
   font-weight: 600;
 }
@@ -133,7 +134,7 @@ a:hover {
 }
 
 .project-card {
-  background: white;
+  background: #fdfaff; /* cards contrast slightly from beige */
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   overflow: hidden;

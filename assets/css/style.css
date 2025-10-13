@@ -10,20 +10,20 @@
 /* Base body font */
 body {
   font-family: 'Quicksand', sans-serif;
-  background-color: #e6ddd6; /* beige-ish background */
-  color: #2e2e2e; /* dark gray for text */
+  background-color: #1B1F3B; /* dark navy */
+  color: #E6E6E6; /* light gray for body text */
   line-height: 1.6;
 }
 
 /* Links */
 a {
   text-decoration: none;
-  color: #5a3ac9; /* darker purple accent */
+  color: #D9CFCF; /* soft beige/lavender accent */
   font-weight: 500;
 }
 
 a:hover {
-  color: #7b5cff; /* lighter purple on hover */
+  color: #6C5B7B; /* bossanova purple on hover */
 }
 
 /* Navbar */
@@ -32,12 +32,20 @@ a:hover {
   justify-content: center;
   gap: 2rem;
   padding: 1.5rem;
-  background: #fdfaff; /* optional subtle contrast from beige */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background: #1B1F3B; /* dark, same as bg for sleek look */
+  font-family: 'Quicksand', sans-serif;
   position: sticky;
   top: 0;
   z-index: 100;
-  font-family: 'Quicksand', sans-serif;
+}
+
+.navbar a {
+  font-weight: 500;
+  color: #E6E6E6;
+}
+
+.navbar a:hover {
+  color: #6C5B7B;
 }
 
 /* Hero Section */
@@ -52,23 +60,23 @@ a:hover {
 
 .animated-name {
   font-family: 'Bebas Neue', sans-serif;
-  font-weight: 400; /* thinnest available */
+  font-weight: 400;
   font-size: 4rem;
-  color: #5a3ac9; /* dark purple */
+  color: #6C5B7B; /* bossanova purple */
   text-transform: uppercase;
-  letter-spacing: 6px; /* makes it look thinner */
+  letter-spacing: 6px;
   animation: fadeInUp 2s ease-out;
 }
 
 .subtitle {
   margin-top: 1rem;
   font-size: 1.5rem;
-  color: #5a3ac9; /* dark purple */
+  color: #D9CFCF; /* soft beige/lavender */
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
   opacity: 0;
   animation: fadeInUp 2s ease-out forwards;
-  animation-delay: 1s; /* appear after name */
+  animation-delay: 1s;
 }
 
 .animated-subtitle {
@@ -99,7 +107,7 @@ a:hover {
 
 .about-section h1 {
   font-size: 3rem;
-  color: #5a3ac9; /* dark purple heading */
+  color: #6C5B7B;
   margin-bottom: 1rem;
   font-weight: 600;
 }
@@ -108,13 +116,13 @@ a:hover {
   font-size: 1.8rem;
   margin-top: 2rem;
   margin-bottom: 0.5rem;
-  color: #5a3ac9;
+  color: #D9CFCF;
   font-weight: 500;
 }
 
 .about-section p {
   margin-bottom: 1rem;
-  color: #2e2e2e;
+  color: #E6E6E6;
   font-weight: 400;
 }
 
@@ -122,7 +130,7 @@ a:hover {
   margin-top: 1rem;
   list-style-type: disc;
   padding-left: 1.5rem;
-  color: #2e2e2e;
+  color: #E6E6E6;
 }
 
 /* Project Grid */
@@ -134,15 +142,16 @@ a:hover {
 }
 
 .project-card {
-  background: #fdfaff; /* cards contrast slightly from beige */
+  background: #2A2E4A; /* slightly lighter dark card */
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   overflow: hidden;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .project-card:hover {
   transform: translateY(-10px);
+  background: #3C3F5A; /* darker on hover */
 }
 
 .project-card img {
@@ -153,5 +162,5 @@ a:hover {
 
 .project-card h3 {
   padding: 1rem;
-  color: #2e2e2e;
+  color: #D9CFCF;
 }

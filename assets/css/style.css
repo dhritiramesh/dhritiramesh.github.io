@@ -44,6 +44,12 @@ a:hover {
   color: #E6E6E6;
 }
 
+.navbar a.active {
+  color: #C8A2C8;
+  border-bottom: 2px solid #C8A2C8;
+  padding-bottom: 4px;
+}
+
 .navbar a:hover {
   color: #C8A2C8; /* light lavender hover */
 }
@@ -273,7 +279,7 @@ a:hover {
 }
 
 .research-sub {
-  color: #C8A2C8;
+  color: #CBA6D9;
   font-size: 0.95rem;
   margin-bottom: 1rem;
   font-family: 'Quicksand', sans-serif;
@@ -298,12 +304,13 @@ a:hover {
 }
 
 /* Details (hidden by default) */
+
 .research-details {
-  margin-top: 1.2rem;
-  display: none;
-  color: #E6E6E6;
-  line-height: 1.6;
-  font-size: 0.95rem;
+  background: rgba(27, 31, 59, 0.6);
+  border-left: 3px solid #C8A2C8;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  margin-top: 1rem;
 }
 
 .research-details.show {
@@ -316,6 +323,10 @@ a:hover {
   color: #C8A2C8;
   font-family: 'Raleway', sans-serif;
   font-size: 1.1rem;
+}
+
+.research-card p {
+  color: #E8E8E8;
 }
 
 @keyframes fadeIn {

@@ -4,90 +4,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Research | Dhriti Ramesh</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quicksand:wght@300;400;500;600&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
   <header>
     <nav class="navbar">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="research.html">Research</a>
+      <a href="research.html" class="active">Projects & Research</a>
       <a href="web-dev.html">Website/App Development</a>
     </nav>
   </header>
 
   <main>
     <section class="research-section">
-      <h1 class="research-title">RESEARCH</h1>
+      <h1 class="research-title">RESEARCH & PROJECTS</h1>
       <div class="research-grid">
 
-        <!-- LLM Research -->
+        <!-- LLM / Prompt Engineering in Education -->
         <div class="research-card">
-          <h3>LLMs & Prompt Engineering in Education</h3>
+          <h3>Prompt Engineering and Large Language Model Optimization for Education</h3>
           <p class="research-sub">Colorado School of Mines • 2024</p>
+          <p>Exploring prompt engineering strategies in Meta’s LLaMA models to improve educational reliability, reproducibility, and latency performance in AI-assisted learning environments.</p>
           <button class="expand-btn">Read More</button>
           <div class="research-details">
             <h4>Abstract</h4>
-            <p>This poster discusses the evaluation of prompt engineering strategies in large language models (LLMs) through an analysis of response accuracy, reproducibility, and latency across multiple model
-variants. The study included 174 prompt-response trials across ten
-categories, including logic, mathematics, and language interpretation, administered to three versions of Meta's LLaMA models
-(1B, 3B, and 8B parameters). Each trial measured response accuracy, reproducibility, and latency (using Python code to quantify
-the latter two systematically) to assess how model scale influences
-both output quality and computational efficiency. Results reveal
-distinct scaling patterns: the LLaMA 8B model achieved the highest accuracy (75.86%) and reproducibility (0.38) but demonstrated
-longer latency (24.27 seconds on average), whereas smaller mod-
-els responded faster but with lower accuracy (24.14% for 1B and
-44.83% for 3B). Across all models, the average accuracy was 48.28%,
-reproducibility 0.35, and mean latency 14.78 seconds. These findings highlight a measurable trade-off between reasoning reliability
-and computational speed. The significance of this work extends
-to computing education, where LLMs are increasingly integrated
-as teaching, tutoring, and assessment tools. Understanding how
-prompt design and model scale affect the consistency of generated
-responses is critical for developing trustworthy and transparent
-educational Al systems. By analyzing LLM behavior across structured prompts, this study provides insight into how educators and
-developers can optimize model interactions for classroom learning,
-automated feedback, and equitable evaluation.</p>
+            <p>This poster discusses the evaluation of prompt engineering strategies in large language models (LLMs) through an analysis of response accuracy, reproducibility, and latency across multiple model variants. The study included 174 prompt-response trials across ten categories, including logic, mathematics, and language interpretation, administered to three versions of Meta's LLaMA models (1B, 3B, and 8B parameters). Each trial measured response accuracy, reproducibility, and latency (using Python code to quantify the latter two systematically) to assess how model scale influences both output quality and computational efficiency. Results reveal distinct scaling patterns: the LLaMA 8B model achieved the highest accuracy (75.86%) and reproducibility (0.38) but demonstrated longer latency (24.27 seconds on average), whereas smaller models responded faster but with lower accuracy (24.14% for 1B and 44.83% for 3B). Across all models, the average accuracy was 48.28%, reproducibility 0.35, and mean latency 14.78 seconds. These findings highlight a measurable trade-off between reasoning reliability and computational speed. The significance of this work extends to education, where LLMs are increasingly integrated as teaching, tutoring, and assessment tools.</p>
             <h4>Journey</h4>
-            <p>Working with a PhD researcher at the Colorado School of Mines, I dove into LLM optimization, testing model behavior across multiple configurations. Through iterative experimentation and Python scripting, I developed an appreciation for reproducibility/latency challenges in AI, inspiring my broader interest in accessible and ethical AI systems for education. Currently, this project is pending publication.</p>
+            <p>I began this project through cold-emailing local professors, which led to a mentorship under a Mines PhD student and a Professor. Initially working on reproducibility metrics, I expanded my work to explore the educational implications of Large Language Models. Currently, my work is pending publication and acceptance to present at conferences, including the Special Interest Group in Computer Science Education Technical Symposium 2026.</p>
           </div>
         </div>
 
         <!-- Astrophysics Research -->
         <div class="research-card">
-          <h3>Astrophysics Research (SSP)</h3>
-          <p class="research-sub">Summer Science Program • 2025</p>
+          <h3>Orbital Determination of Mars Crossing Asteroid 5066 Garradd</h3>
+          <p class="research-sub">Summer Science Program (SSP) • 2025</p>
+          <p>Calculated the orbital elements of a Mars-crossing asteroid using real telescope data and Python-based numerical methods in collaboration with peers and astrophysicists.</p>
           <button class="expand-btn">Read More</button>
           <div class="research-details">
             <h4>Abstract</h4>
-            <p>This paper discusses the process used to study the motion of the Mars-crossing Asteroid 5066 Garradd
-(1990 MA) and the process used to redetermine and confirm its orbit. The study included determining
-the asteroid's position on five observation nights spread throughout the months of June and July 2025.
-Using the positions of 5066 Garradd during three of these observations, the position (with respect to
-the Sun) and velocity vectors were calculated via the Method of Gauss. With these vectors, the six
-orbital elements - the semi-major axis (a), eccentricity (e), inclination i), longitude of the ascending
-node (S), argument of perihelion (w), and time of perihelion passage (T) - were calculated through a
-series of mathematical processes as well as their corresponding uncertainties found from the calculated
-standard deviation using the Monte Carlo method. These elements were found to be a = 1.937±
-0.002 AU, e = 0.1550 ± 0.0005, i = 41.48° ± 0.02° , П = 82.266° ± 0.009° , w = 184.70° ± 0.09,
-T = 2459893 ± 1, and the mean anomaly on 2025-July-06 was found to be 354.38° ±
-0.07°. The orbital elements were later used to determine the asteroid's orbit. Consistency checks were
-successful, as the use of such orbital elements produced an accurate ephemeris (R.A. and Decl.) for
-the remaining two observations.</p>
+            <p>This paper discusses the process used to study the motion of the Mars-crossing Asteroid 5066 Garradd (1990 MA) and the process used to redetermine and confirm its orbit. The study included determining the asteroid's position on five observation nights spread throughout the months of June and July 2025. Using the positions of 5066 Garradd during three of these observations, the position (with respect to the Sun) and velocity vectors were calculated via the Method of Gauss. The six orbital elements and corresponding uncertainties were computed using the Monte Carlo method. These elements were later used to determine the asteroid's orbit, with consistency checks confirming an accurate ephemeris for the remaining two observations.</p>
             <h4>Journey</h4>
-            <p>This was my first exposure to intensive scientific research — coding in Python late into the night, learning new math and physics concepts, and collaborating with peers from around the world. It strengthened my desire to blend computation with physical sciences and taught me how scientific curiosity drives discovery.</p>
+            <p>This project was made possible through my participation in the Summer Science Program (SSP), where I collaborated with peers from around the world and mentors in astronomy and physics. I learned celestial mechanics, orbital dynamics, and applied advanced mathematics using Python scripts for data analysis and orbit simulation — demonstrating how computer science can advance research in astrophysics.</p>
           </div>
         </div>
 
         <!-- Anemia App -->
         <div class="research-card">
-          <h3>Anemia Detection & Awareness App</h3>
-          <p class="research-sub">Personal Initiative • 2025</p>
+          <h3>Anemia Early Detection App</h3>
+          <p class="research-sub">Congressional App Challenge Submission • 2025</p>
+          <p>Developed a mobile app integrating a CNN model to detect anemia risk from non-invasive conjunctiva images, enhancing accessibility to early screening tools.</p>
           <button class="expand-btn">Read More</button>
           <div class="research-details">
             <h4>Overview</h4>
-            <p>This ongoing project focuses on using accessible technology to improve awareness of anemia and nutritional deficiencies. Through app-based self-assessments, educational modules, and symptom tracking, the tool aims to empower individuals — especially young women — with proactive health insights.</p>
+            <p>Developed a Convolutional Neural Network (CNN) model and mobile application designed to detect potential signs of anemia through non-invasive image analysis of the human conjunctiva (the inner eyelid). The app processes user-submitted images to assess pallor and color distribution, providing a probability-based estimate of anemia risk. This project aims to make early screening more accessible, particularly in regions lacking medical infrastructure or diagnostic tools and especially for young women who are especially susceptible to anemia.</p>
             <h4>Journey</h4>
-            <p>I began this project after learning about global health disparities related to iron deficiency. Combining my interests in computer science and biology, I designed early app prototypes and researched how user-centered interfaces could improve engagement with health education. The project continues to evolve as I explore ways to integrate AI-driven analysis and expand impact through outreach.</p>
+            <p>This project stemmed from my passion for combining computer science and healthcare to solve real-world problems. Working with a peer, we trained a CNN model using a curated dataset of conjunctiva images to recognize color variations linked to anemia. Alongside developing the app interface, I collaborated with mentors in both medicine and machine learning to ensure ethical and accurate model use. Currently, the app is being evaluated by the Congressional App Challenge, though it remains unpublished due to data confidentiality.</p>
           </div>
         </div>
 

@@ -10,7 +10,7 @@
 /* Base body font */
 body {
   font-family: 'Quicksand', sans-serif;
-  background-color: #1B1F3B; /* dark navy */
+  background: radial-gradient(circle at 20% 30%, #2A2E4A, #1B1F3B 60%);
   color: #E6E6E6; /* light gray for body text */
   line-height: 1.6;
 }
@@ -48,10 +48,12 @@ a:hover {
   color: #C8A2C8;
   border-bottom: 2px solid #C8A2C8;
   padding-bottom: 4px;
+  transition: all 0.3s ease;
 }
 
 .navbar a:hover {
   color: #C8A2C8;
+  transform: translateY(-2px);
 }
 
 /* Hero Section */
@@ -72,6 +74,8 @@ a:hover {
   text-transform: uppercase;
   letter-spacing: 6px;
   animation: fadeInUp 2s ease-out;
+  text-shadow: 0 0 20px rgba(200, 162, 200, 0.4);
+
 }
 
 .subtitle {
@@ -89,6 +93,17 @@ a:hover {
   opacity: 0;
   animation: fadeInUp 2s ease-out forwards;
   animation-delay: 1s;
+}
+
+.scroll-indicator {
+  margin-top: 2rem;
+  opacity: 0.6;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
 }
 
 /* Animations */

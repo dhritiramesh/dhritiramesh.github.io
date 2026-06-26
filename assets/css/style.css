@@ -304,17 +304,28 @@ a:hover {
 .research-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin: 12px 0 16px;
+  gap: 0.5rem;
+  margin: 0.8rem 0 1rem;
 }
 
 .research-tags span {
-  background: #f2f2f2;
-  color: #444;
-  font-size: 0.82rem;
-  padding: 5px 12px;
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
   border-radius: 999px;
+  background: rgba(200, 162, 200, 0.12);
+  border: 1px solid rgba(200, 162, 200, 0.35);
+  color: #D9CFCF;
+  font-size: 0.78rem;
   font-weight: 500;
+  font-family: 'Quicksand', sans-serif;
+  letter-spacing: 0.2px;
+  transition: all 0.25s ease;
+}
+
+.research-tags span:hover {
+  background: rgba(200, 162, 200, 0.22);
+  border-color: rgba(200, 162, 200, 0.55);
+  transform: translateY(-1px);
 }
 /* Summary paragraph spacing */
 .research-card p {

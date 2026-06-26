@@ -270,6 +270,7 @@ a:hover {
   gap: 2.5rem;
 }
 
+
 /* Card Styling */
 .research-card {
   background: linear-gradient(160deg, #2A2E4A 0%, #1F2343 100%);
@@ -300,6 +301,21 @@ a:hover {
   font-family: 'Quicksand', sans-serif;
 }
 
+.research-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 16px;
+}
+
+.research-tags span {
+  background: #f2f2f2;
+  color: #444;
+  font-size: 0.82rem;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-weight: 500;
+}
 /* Summary paragraph spacing */
 .research-card p {
   color: #E8E8E8;
@@ -346,6 +362,7 @@ a:hover {
   font-family: 'Raleway', sans-serif;
   font-size: 1.1rem;
 }
+
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }

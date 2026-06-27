@@ -219,6 +219,21 @@ a:hover {
   opacity: 0.9;
 }
 
+.project-placeholder {
+  width: 100%;
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, #32385f 0%, #24294a 100%);
+  border-bottom: 2px solid #C8A2C8;
+  color: #C8A2C8;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
 /* Project Titles */
 .project-card h3 {
   font-family: 'Raleway', sans-serif;

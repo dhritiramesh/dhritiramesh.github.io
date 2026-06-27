@@ -162,10 +162,12 @@ a:hover {
 }
 
 .about-section h1 {
-  font-size: 3rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem;
   color: #C8A2C8;
-  margin-bottom: 1rem;
-  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
 }
 
 .about-section h2 {

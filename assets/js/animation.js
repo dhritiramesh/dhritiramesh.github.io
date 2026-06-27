@@ -103,38 +103,46 @@ if (canvas) {
     this.phase = Math.random() * Math.PI * 2;
   }
 
-  update(time) {
+update(time) {
 
-    this.x += this.vx;
-    this.y += this.vy;
+  this.x += this.vx;
+  this.y += this.vy;
 
-    if (this.x < -5) this.x = canvas.width + 5;
-    if (this.x > canvas.width + 5) this.x = -5;
+  // Screen wrap
+  if (this.x < -5) this.x = canvas.width + 5;
+  if (this.x > canvas.width + 5) this.x = -5;
 
-    if (this.y < -5) this.y = canvas.height + 5;
-    if (this.y > canvas.height + 5) this.y = -5;
+  if (this.y < -5) this.y = canvas.height + 5;
+  if (this.y > canvas.height + 5) this.y = -5;
 
-    if (mouse.x !== null) {
-
-      const dx = mouse.x - this.x;
-      const dy = mouse.y - this.y;
-
-      const dist = Math.sqrt(dx * dx + dy * dy);
-
-      if (dist < mouse.radius) {
-
-        const force = (mouse.radius - dist) / mouse.radius;
-
-        this.x += dx * force * 0.004;
-        this.y += dy * force * 0.004;
-      }
-
-    }
-
-    this.radius =
-      this.baseRadius +
-      Math.sin(time * 0.0014 + this.phase) * 0.25;
+  // Slight organic drift for hub nodes
+  if (this.type === "large") {
+    this.x += Math.sin(time * 0.00035 + this.phase) * 0.12;
+    this.y += Math.cos(time * 0.00035 + this.phase) * 0.12;
   }
+
+  // Mouse interaction
+  if (mouse.x !== null) {
+
+    const dx = mouse.x - this.x;
+    const dy = mouse.y - this.y;
+
+    const dist = Math.sqrt(dx * dx + dy * dy);
+
+    if (dist < mouse.radius) {
+
+      const force = (mouse.radius - dist) / mouse.radius;
+
+      this.x += dx * force * 0.004;
+      this.y += dy * force * 0.004;
+    }
+  }
+
+  // Breathing effect
+  this.radius =
+    this.baseRadius +
+    Math.sin(time * 0.0014 + this.phase) * 0.25;
+}
 
   draw() {
 
@@ -172,50 +180,48 @@ for (let i = 0; i < LARGE; i++) {
     particles.push(new Particle("large"));
 }
 
-  function connectParticles() {
+function connectParticles() {
 
-    let maxDistance = 155;
+  for (let i = 0; i < particles.length; i++) {
 
-    if (
+    for (let j = i + 1; j < particles.length; j++) {
+
+      let maxDistance = 155;
+
+      if (
         particles[i].type === "large" ||
         particles[j].type === "large"
-    ) {
+      ) {
         maxDistance = 215;
-    }
-    else if (
+      }
+      else if (
         particles[i].type === "medium" ||
         particles[j].type === "medium"
-    ) {
+      ) {
         maxDistance = 180;
-    }
+      }
 
-    for (let i = 0; i < particles.length; i++) {
+      const dx = particles[i].x - particles[j].x;
+      const dy = particles[i].y - particles[j].y;
 
-      for (let j = i + 1; j < particles.length; j++) {
+      const dist = Math.sqrt(dx * dx + dy * dy);
 
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
+      if (dist < maxDistance) {
 
-        const dist = Math.sqrt(dx * dx + dy * dy);
+        const opacity = (1 - dist / maxDistance) * 0.18;
 
-        if (dist < maxDistance) {
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(200,162,200,${opacity})`;
+        ctx.lineWidth = 1;
 
-          const opacity = (1 - dist / maxDistance) * 0.18;
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[j].x, particles[j].y);
 
-          ctx.beginPath();
-
-          ctx.strokeStyle = `rgba(200,162,200,${opacity})`;
-
-          ctx.lineWidth = 1;
-
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-
-          ctx.stroke();
-        }
+        ctx.stroke();
       }
     }
   }
+}
 
   function drawCursorConnections() {
 
@@ -271,21 +277,24 @@ for (let i = 0; i < LARGE; i++) {
     });
   }
 
-  function animate(time) {
+function animate(time) {
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    connectParticles();
+  particles.forEach((particle) => {
+    particle.update(time);
+  });
 
-    particles.forEach((particle) => {
-      particle.update(time);
-      particle.draw();
-    });
+  connectParticles();
 
-    drawCursorConnections();
+  particles.forEach((particle) => {
+    particle.draw();
+  });
 
-    requestAnimationFrame(animate);
-  }
+  drawCursorConnections();
+
+  requestAnimationFrame(animate);
+}
 
   animate(0);
 

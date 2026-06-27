@@ -68,79 +68,126 @@ if (canvas) {
 
   class Particle {
 
-    constructor() {
+  constructor(type) {
 
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
+    this.type = type;
 
-      this.vx = (Math.random() - 0.5) * 0.28;
-      this.vy = (Math.random() - 0.5) * 0.28;
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
 
-      this.radius = 1.8 + Math.random() * 2.5;
+    if (type === "large") {
 
-      this.baseRadius = this.radius;
-      this.phase = Math.random() * Math.PI * 2;
+      this.baseRadius = 4.8 + Math.random();
+      this.speed = 0.16;
+      this.glow = 22;
+
+    } else if (type === "medium") {
+
+      this.baseRadius = 3 + Math.random() * 0.8;
+      this.speed = 0.22;
+      this.glow = 15;
+
+    } else {
+
+      this.baseRadius = 1.8 + Math.random() * 0.8;
+      this.speed = 0.30;
+      this.glow = 10;
+
     }
 
-    update(time) {
+    this.radius = this.baseRadius;
 
-      this.x += this.vx;
-      this.y += this.vy;
+    this.vx = (Math.random() - 0.5) * this.speed;
+    this.vy = (Math.random() - 0.5) * this.speed;
 
-      // Screen wrapping
-      if (this.x < -5) this.x = canvas.width + 5;
-      if (this.x > canvas.width + 5) this.x = -5;
+    this.phase = Math.random() * Math.PI * 2;
+  }
 
-      if (this.y < -5) this.y = canvas.height + 5;
-      if (this.y > canvas.height + 5) this.y = -5;
+  update(time) {
 
-      // Gentle attraction toward cursor
-      if (mouse.x !== null) {
+    this.x += this.vx;
+    this.y += this.vy;
 
-        const dx = mouse.x - this.x;
-        const dy = mouse.y - this.y;
+    if (this.x < -5) this.x = canvas.width + 5;
+    if (this.x > canvas.width + 5) this.x = -5;
 
-        const dist = Math.sqrt(dx * dx + dy * dy);
+    if (this.y < -5) this.y = canvas.height + 5;
+    if (this.y > canvas.height + 5) this.y = -5;
 
-        if (dist < mouse.radius) {
+    if (mouse.x !== null) {
 
-          const force = (mouse.radius - dist) / mouse.radius;
+      const dx = mouse.x - this.x;
+      const dy = mouse.y - this.y;
 
-          this.x += dx * force * 0.004;
-          this.y += dy * force * 0.004;
-        }
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < mouse.radius) {
+
+        const force = (mouse.radius - dist) / mouse.radius;
+
+        this.x += dx * force * 0.004;
+        this.y += dy * force * 0.004;
       }
 
-      // Tiny breathing animation
-      this.radius =
-        this.baseRadius +
-        Math.sin(time * 0.0015 + this.phase) * 0.35;
     }
 
-    draw() {
+    this.radius =
+      this.baseRadius +
+      Math.sin(time * 0.0014 + this.phase) * 0.25;
+  }
 
-      ctx.beginPath();
+  draw() {
 
-      ctx.fillStyle = "rgba(200,162,200,0.95)";
-      ctx.shadowBlur = 12;
-      ctx.shadowColor = "rgba(200,162,200,0.8)";
+    ctx.beginPath();
 
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-
-      ctx.fill();
-
-      ctx.shadowBlur = 0;
+    if (this.type === "large") {
+      ctx.fillStyle = "rgba(220,190,255,1)";
+    } else if (this.type === "medium") {
+      ctx.fillStyle = "rgba(210,180,240,0.95)";
+    } else {
+      ctx.fillStyle = "rgba(200,162,200,0.9)";
     }
 
+    ctx.shadowBlur = this.glow;
+    ctx.shadowColor = "rgba(200,162,200,0.85)";
+
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+
+    ctx.fill();
+
+    ctx.shadowBlur = 0;
   }
 
-  for (let i = 0; i < particleCount; i++) {
-    particles.push(new Particle());
-  }
+}
+
+  for (let i = 0; i < SMALL; i++) {
+    particles.push(new Particle("small"));
+}
+
+for (let i = 0; i < MEDIUM; i++) {
+    particles.push(new Particle("medium"));
+}
+
+for (let i = 0; i < LARGE; i++) {
+    particles.push(new Particle("large"));
+}
 
   function connectParticles() {
 
-    const maxDistance = 155;
+    let maxDistance = 155;
+
+    if (
+        particles[i].type === "large" ||
+        particles[j].type === "large"
+    ) {
+        maxDistance = 215;
+    }
+    else if (
+        particles[i].type === "medium" ||
+        particles[j].type === "medium"
+    ) {
+        maxDistance = 180;
+    }
 
     for (let i = 0; i < particles.length; i++) {
 

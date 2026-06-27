@@ -15,6 +15,28 @@ body {
   line-height: 1.6;
 }
 
+/* Allow animated background */
+html, body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+/* ==========================================
+   Animated Neural Network Background
+========================================== */
+
+#network-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
 /* Links */
 a {
   text-decoration: none;
@@ -36,7 +58,7 @@ a:hover {
   font-family: 'Quicksand', sans-serif;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .navbar a {
@@ -58,33 +80,55 @@ a:hover {
 
 /* Hero Section */
 .hero {
+  position: relative;
+  z-index: 2;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+
+  height: calc(100vh - 72px);
+
   text-align: center;
+
+  padding: 0 2rem;
 }
 
 .animated-name {
   font-family: 'Bebas Neue', sans-serif;
   font-weight: 400;
-  font-size: 4rem;
-  color: #C8A2C8;
-  text-transform: uppercase;
-  letter-spacing: 6px;
-  animation: fadeInUp 2s ease-out;
-  text-shadow: 0 0 20px rgba(200, 162, 200, 0.4);
+  font-size: clamp(4rem, 10vw, 6.5rem);
 
+  color: #C8A2C8;
+
+  text-transform: uppercase;
+  letter-spacing: 8px;
+
+  animation: fadeInUp 2s ease-out;
+
+  text-shadow:
+      0 0 18px rgba(200,162,200,.35),
+      0 0 45px rgba(200,162,200,.08);
 }
 
 .subtitle {
-  margin-top: 1rem;
-  font-size: 1.5rem;
-  color: #D9CFCF;
+  margin-top: 1.25rem;
+
+  max-width: 760px;
+
+  font-size: 1.35rem;
+
+  line-height: 1.8;
+
+  color: #DDD6E8;
+
   font-family: 'Raleway', sans-serif;
+
   font-weight: 400;
+
   opacity: 0;
+
   animation: fadeInUp 2s ease-out forwards;
   animation-delay: 1s;
 }
@@ -95,16 +139,7 @@ a:hover {
   animation-delay: 1s;
 }
 
-.scroll-indicator {
-  margin-top: 2rem;
-  opacity: 0.6;
-  animation: bounce 2s infinite;
-}
 
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(8px); }
-}
 
 /* Animations */
 @keyframes fadeInUp {
@@ -403,4 +438,24 @@ a:hover {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 520px;
+  height: 520px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+      rgba(200,162,200,.14),
+      transparent 70%
+  );
+
+  filter: blur(60px);
+
+  z-index: -1;
 }

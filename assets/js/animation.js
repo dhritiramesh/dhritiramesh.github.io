@@ -26,6 +26,10 @@ if (nameElement) {
 // Animated Neural Network
 // ===============================
 
+// ===============================
+// Animated Neural Network
+// ===============================
+
 const canvas = document.getElementById("network-canvas");
 
 if (canvas) {
@@ -43,7 +47,7 @@ if (canvas) {
   const mouse = {
     x: null,
     y: null,
-    radius: 150
+    radius: 170
   };
 
   window.addEventListener("mousemove", (e) => {
@@ -57,32 +61,40 @@ if (canvas) {
   });
 
   const particles = [];
-  const particleCount = 42;
+
+  const SMALL = 34;
+  const MEDIUM = 10;
+  const LARGE = 3;
 
   class Particle {
 
     constructor() {
-      this.reset();
-    }
 
-    reset() {
       this.x = Math.random() * canvas.width;
       this.y = Math.random() * canvas.height;
 
-      this.vx = (Math.random() - 0.5) * 0.35;
-      this.vy = (Math.random() - 0.5) * 0.35;
+      this.vx = (Math.random() - 0.5) * 0.28;
+      this.vy = (Math.random() - 0.5) * 0.28;
 
-      this.radius = 2 + Math.random() * 2.5;
+      this.radius = 1.8 + Math.random() * 2.5;
+
+      this.baseRadius = this.radius;
+      this.phase = Math.random() * Math.PI * 2;
     }
 
-    update() {
+    update(time) {
 
       this.x += this.vx;
       this.y += this.vy;
 
-      if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-      if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+      // Screen wrapping
+      if (this.x < -5) this.x = canvas.width + 5;
+      if (this.x > canvas.width + 5) this.x = -5;
 
+      if (this.y < -5) this.y = canvas.height + 5;
+      if (this.y > canvas.height + 5) this.y = -5;
+
+      // Gentle attraction toward cursor
       if (mouse.x !== null) {
 
         const dx = mouse.x - this.x;
@@ -91,10 +103,18 @@ if (canvas) {
         const dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist < mouse.radius) {
-          this.x -= dx * 0.0025;
-          this.y -= dy * 0.0025;
+
+          const force = (mouse.radius - dist) / mouse.radius;
+
+          this.x += dx * force * 0.004;
+          this.y += dy * force * 0.004;
         }
       }
+
+      // Tiny breathing animation
+      this.radius =
+        this.baseRadius +
+        Math.sin(time * 0.0015 + this.phase) * 0.35;
     }
 
     draw() {
@@ -102,9 +122,8 @@ if (canvas) {
       ctx.beginPath();
 
       ctx.fillStyle = "rgba(200,162,200,0.95)";
-
-      ctx.shadowBlur = 14;
-      ctx.shadowColor = "rgba(200,162,200,0.7)";
+      ctx.shadowBlur = 12;
+      ctx.shadowColor = "rgba(200,162,200,0.8)";
 
       ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
 
@@ -121,55 +140,106 @@ if (canvas) {
 
   function connectParticles() {
 
-    const maxDistance = 150;
+    const maxDistance = 155;
 
-    for (let a = 0; a < particles.length; a++) {
+    for (let i = 0; i < particles.length; i++) {
 
-      for (let b = a + 1; b < particles.length; b++) {
+      for (let j = i + 1; j < particles.length; j++) {
 
-        const dx = particles[a].x - particles[b].x;
-        const dy = particles[a].y - particles[b].y;
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
 
-        const distance = Math.sqrt(dx * dx + dy * dy);
+        const dist = Math.sqrt(dx * dx + dy * dy);
 
-        if (distance < maxDistance) {
+        if (dist < maxDistance) {
 
-          const opacity = 1 - distance / maxDistance;
+          const opacity = (1 - dist / maxDistance) * 0.18;
 
           ctx.beginPath();
 
-          ctx.strokeStyle = `rgba(200,162,200,${opacity * 0.22})`;
+          ctx.strokeStyle = `rgba(200,162,200,${opacity})`;
 
           ctx.lineWidth = 1;
 
-          ctx.moveTo(particles[a].x, particles[a].y);
-          ctx.lineTo(particles[b].x, particles[b].y);
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
 
           ctx.stroke();
-
         }
-
       }
-
     }
-
   }
 
-  function animate() {
+  function drawCursorConnections() {
+
+    if (mouse.x === null) return;
+
+    // Cursor glow
+    const gradient = ctx.createRadialGradient(
+      mouse.x,
+      mouse.y,
+      0,
+      mouse.x,
+      mouse.y,
+      24
+    );
+
+    gradient.addColorStop(0, "rgba(200,162,200,0.8)");
+    gradient.addColorStop(1, "rgba(200,162,200,0)");
+
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(mouse.x, mouse.y, 24, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Cursor node
+    ctx.beginPath();
+    ctx.fillStyle = "#E8D4F0";
+    ctx.arc(mouse.x, mouse.y, 3.2, 0, Math.PI * 2);
+    ctx.fill();
+
+    particles.forEach((particle) => {
+
+      const dx = mouse.x - particle.x;
+      const dy = mouse.y - particle.y;
+
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < mouse.radius) {
+
+        const opacity = (1 - dist / mouse.radius) * 0.55;
+
+        ctx.beginPath();
+
+        ctx.strokeStyle = `rgba(200,162,200,${opacity})`;
+
+        ctx.lineWidth = 1.2;
+
+        ctx.moveTo(mouse.x, mouse.y);
+        ctx.lineTo(particle.x, particle.y);
+
+        ctx.stroke();
+      }
+
+    });
+  }
+
+  function animate(time) {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     connectParticles();
 
     particles.forEach((particle) => {
-      particle.update();
+      particle.update(time);
       particle.draw();
     });
 
-    requestAnimationFrame(animate);
+    drawCursorConnections();
 
+    requestAnimationFrame(animate);
   }
 
-  animate();
+  animate(0);
 
 }
